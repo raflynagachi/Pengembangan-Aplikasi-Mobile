@@ -4,7 +4,7 @@ function buyItem(){
     }
 }
 
-function decrlItem(){
+function decrItem(){
     return {
         type: 'DECR_ITEM'
     }
@@ -18,7 +18,7 @@ function cancelItem(){
 
 const actionCreators = {
     buyItem,
-    decrlItem,
+    decrItem,
     cancelItem
 }
 

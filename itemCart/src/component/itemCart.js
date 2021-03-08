@@ -45,7 +45,7 @@ const itemCart = () => {
       </Text>
       <View style={{flexDirection:'row', justifyContent:'space-around'}}>
         <Button title={'Cancel'} onPress={() => dispatch(actions.cancelItem())}/>
-        <Button title={'-'} onPress={() => dispatch(actions.decrlItem())}/>
+        <Button title={'-'} onPress={() => dispatch(actions.decrItem())}/>
         <Button title={'+'} onPress={() => dispatch(actions.buyItem())}/>
       </View>
       <Text style={{marginTop:12}}>Jumlah beli: {state}</Text>
