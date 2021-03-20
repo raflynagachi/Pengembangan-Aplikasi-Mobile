@@ -6,44 +6,45 @@ export default class App extends Component{
     super();
     this.initialState = {
       name: '',
-      age: ''
+      age: '',
+      newName: '',
+      newAge: ''
     }
     this.state = this.initialState;
   }
   onButtonPress = () => {
     this.setState({
-      name: this.state.nama,
-      age: this.state.umur
+      name: this.state.newName,
+      age: this.state.newAge
     })
   }
 
   render(){
     return (
       <View style={styles.container}>
-        <View>
-          <Text>Nama: {this.state.name}</Text>
-          <Text>Umur: {this.state.age}</Text>
+        <View style={styles.form}>
+          <Text>Nama: </Text>
+          <Text style={{fontWeight: 'bold'}}>{this.state.name}</Text>
         </View>
+        <View style={styles.form}>
+          <Text>Umur: </Text>
+          <Text style={{fontWeight: 'bold'}}>{this.state.age}</Text>
+        </View>
+        
+        <TextInput 
+          style={styles.textinput} 
+          placeholder='Nama'
+          onChangeText={(newName) => this.setState({newName})} />
+        <TextInput 
+          style={styles.textinput} 
+          placeholder='Umur'
+          onChangeText={(newAge) => this.setState({newAge})}/>
         <TouchableOpacity
           style = {styles.button}
           onPress = {this.onButtonPress}
         >
           <Text style={styles.text} >Klik untuk mengubah informasi</Text>
         </TouchableOpacity>
-        <View style={styles.form}>
-          <Text>Nama baru</Text>
-          <TextInput 
-            style={styles.textinput} 
-            placeholder='Nama'
-            onChangeText={(nama) => this.setState({nama})} />
-        </View>
-        <View style={styles.form}>
-          <Text>Umur baru</Text>
-          <TextInput 
-            style={styles.textinput} 
-            placeholder='Umur'
-            onChangeText={(umur) => this.setState({umur})}/>
-        </View>
       </View>
     )
   }
@@ -61,14 +62,17 @@ const styles = StyleSheet.create({
   },
   textinput: {
     borderWidth: 2,
-    marginLeft: 8
+    borderColor: '#368fad',
+    marginVertical: 4,
+    marginRight: 14,
+    paddingLeft: 4
   },
   button: {
     margin: 1,
     backgroundColor: '#368fad',
     justifyContent: 'center',
     padding: 12,
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-end',
     borderRadius: 8,
     margin: 12
   },
